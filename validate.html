@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Validation</title>
+  <link rel="stylesheet" href="validate.css">
+</head>
+
+
+
+
+
+
+
+
+<body>
+
+
+  <div class="container">
+    <div class="main-box">
+      <h2 class="sign-in">Sign in</h2>
+      <form action="" onsubmit="return validateForm()">
+        <input type="text" placeholder="Username" id="username"> <br>
+        <p id="errorUser"></p>
+
+        <input type="email" placeholder="Email" id="email" > <br>
+
+        <p id="errorEmail"></p>
+        <input type="password" placeholder="Password" id="password"> <br>
+        <p id="errorPass"></p>
+        <p class="forget">Forgot password? <a href="googlesupport.com" target="_blank">Click Here!</a> </p>
+
+        <input type="submit">
+        
+
+      </form>
+    </div>
+  </div>
+
+
+
+ 
+  <script>
+    let username = document.getElementById("username");
+    let password = document.getElementById("password"); 
+    let email = document.getElementById("email");
+
+    function validateForm(){
+       let flag;
+       if(username.value == ""){
+        document.getElementById("errorUser").innerHTML = "Username is empty!!";
+        flag = 0;
+       }else if(username.value.length < 3){
+        document.getElementById("errorUser").innerHTML = "Username must be at least 3 character!";
+        flag = 0;
+       }else{
+        document.getElementById("errorUser").innerHTML = "";
+        flag = 1;
+       }
+
+       if(email.value == ""){
+        document.getElementById("errorEmail").innerHTML = "Email is empty!!";
+        flag = 0;
+       }
+       else{
+        document.getElementById("errorEmail").innerHTML = "";
+        flag = 1;
+       }
+
+       if(password.value == ""){
+        document.getElementById("errorPass").innerHTML = "Password is empty!!";
+        flag = 0;
+       }else{
+        document.getElementById("errorPass").innerHTML = "";
+        flag = 1;
+       }
+     
+       if(flag == 1){
+        return true;
+       }
+       else{
+        return false;
+       }
+    }
+  </script>
+
+
+
+
+
+
+</body>
+</html>
